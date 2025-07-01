@@ -2,16 +2,12 @@
 - name: Onboard a new user
   hosts: all
   become: yes
-  vars:
-    username: "{{ username }}"
-    full_name: "{{ full_name }}"
-    ssh_key: "{{ ssh_key }}"
   tasks:
     - name: Create user
       user:
         name: "{{ username }}"
         comment: "{{ full_name }}"
-        shell: /bin/bash"
+        shell: /bin/bash
         groups: sudo
         state: present
         create_home: yes
