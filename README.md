@@ -1,17 +1,16 @@
-# 🧰 Ansible Playbooks for User Management & Server Automation
+# Ansible Playbooks for User Management & Server Automation
 
 This repository contains ready-to-use Ansible playbooks for managing Linux servers in a structured environment. It was created for semi-automated user provisioning, key rotation, and deprovisioning in a secure and reproducible way.
 
 ---
 
-## 📦 What's Inside?
+## What's Inside?
 
 This repository provides:
 
 - ✅ **User onboarding** with SSH key & sudo rights
 - 🔐 **SSH key rotation** for secure access maintenance
 - ❌ **Offboarding** of users incl. access revocation
-- 📂 YAML inventories for different network zones (DMZ, MGMT, INTRA)
 - 🧩 Integration-ready for [Ansible Semaphore](https://github.com/ansible-semaphore/semaphore)
 
 ---
