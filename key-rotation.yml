@@ -1,0 +1,10 @@
+- name: Rotate SSH key
+  hosts: all
+  become: yes
+  tasks:
+    - name: Replace authorized key
+      authorized_key:
+        user: "{{ username }}"
+        key: "{{ new_ssh_key }}"
+        state: present
+        exclusive: true
