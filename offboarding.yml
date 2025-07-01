@@ -1,0 +1,25 @@
+- name: Offboard a user
+  hosts: all
+  become: yes
+  tasks:
+    - name: Remove authorized key file (if exists)
+      file:
+        path: "/home/{{ username }}/.ssh/authorized_keys"
+        state: absent
+
+    - name: Remove sudoers file
+      file:
+        path: "/etc/sudoers.d/{{ username }}"
+        state: absent
+
+    - name: Remove user from access.conf
+      lineinfile:
+        path: /etc/security/access.conf
+        regexp: "^.*{{ username }}.*$"
+        state: absent
+
+    - name: Delete user account
+      user:
+        name: "{{ username }}"
+        state: absent
+        remove: "{{ delete_home }}"
